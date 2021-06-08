@@ -1,0 +1,26 @@
+.centerInfo {
+  display: inline-block;
+  width: 10%;
+  .centerInfo-heading {
+    display: flex;
+
+    h5 {
+      margin: 0;
+    }
+
+    span {
+      background-color: blue;
+      color: white;
+      border-radius: 10px;
+      padding: 2px 5px;
+      font-size: 0.8em;
+      align-self: flex-start;
+    }
+  }
+
+  .centerInfo-address {
+  }
+  .centerInfo-footer {
+    font-family: 600;
+  }
+}

@@ -3,10 +3,10 @@ import SearchTabs from "components/searchTabs";
 import SearchByPin from "components/searchByPin";
 import SearchByMap from "components/searchByMap";
 import SearchByDistrict from "components/searchByDistrict";
-import { searchTypes } from "../../config";
+import { searchTypes } from "config";
 
 function Home() {
-  const [selectedTab, setSelectedTab] = useState(searchTypes.searchByMap);
+  const [selectedTab, setSelectedTab] = useState(searchTypes.searchByPin);
 
   const tabClickHandler = (name) => {
     setSelectedTab(name);
