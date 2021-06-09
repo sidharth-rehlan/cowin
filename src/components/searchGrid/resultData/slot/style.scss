@@ -1,0 +1,40 @@
+.slotUI {
+  .slotUI-availableDoses {
+    display: flex;
+    width: 100px;
+    justify-content: space-around;
+    border: 1px solid grey;
+    .slotUI-dose1,
+    .slotUI-dose2 {
+      span {
+        display: block;
+      }
+    }
+  }
+  .slotUI-notAvailable {
+    span {
+      background-color: #ad0000;
+      padding: 0.2em;
+    }
+  }
+  .slotUI-total-available-dose {
+    display: flex;
+    align-items: center;
+    background-color: #a9d18e;
+    span {
+      font-weight: 600;
+    }
+  }
+  .slotUI-vaccineName {
+    padding: 0.4em 0;
+    span {
+      text-transform: uppercase;
+    }
+  }
+  .slotUI-ageCategory {
+    span {
+      color: #c20505;
+      font-size: 0.9em;
+    }
+  }
+}

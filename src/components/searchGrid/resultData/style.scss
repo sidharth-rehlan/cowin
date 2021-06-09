@@ -1,9 +1,11 @@
-.sessionItems {
-  span {
-    padding: 1em;
-  }
-}
-
 .resultRow {
   display: flex;
+}
+
+ul.sessionList {
+  display: flex;
+}
+
+.sessionItems {
+  margin: 0 0.3em;
 }

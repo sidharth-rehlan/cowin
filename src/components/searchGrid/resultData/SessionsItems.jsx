@@ -1,4 +1,5 @@
 import React from "react";
+import SlotUI from "./slot/SlotUI";
 import "./style.scss";
 
 function SessionsItems(props) {
@@ -12,12 +13,13 @@ function SessionsItems(props) {
   } = props.session;
   return (
     <li className="sessionItems">
-      <span className="sessionItems-d1">D1:{available_capacity_dose1}</span>
-      <span className="sessionItems-dose">{available_capacity}</span>
-      <span className="sessionItems-d2">D2:{available_capacity_dose2}</span>
-      <span className="sessionItems-ageLimit">{min_age_limit}+</span>
-      <span className="sessionItems-date">{date}</span>
-      <span className="sessionItems-vaccine">{vaccine}</span>
+      <SlotUI
+        dose1={available_capacity_dose1}
+        availableDose={available_capacity}
+        dose2={available_capacity_dose2}
+        vaccineName={vaccine}
+        ageCategory={min_age_limit}
+      />
     </li>
   );
 }
