@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   loading: false,
-  districts: [],
+  districts: {},
   error: "",
 };
 
@@ -21,14 +21,17 @@ const reducer = (state = initialState, action) => {
     case FETCH_DISTRICTS_SUCCESS: {
       return {
         loading: false,
-        states: action.payload,
         error: "",
+        districts: {
+          ...state.districts,
+          [action.payload.stateId]: action.payload.districts,
+        },
       };
     }
     case FETCH_DISTRICTS_FAILURE: {
       return {
         loading: false,
-        states: [],
+        districts: { ...state.districts },
         error: action.payload,
       };
     }

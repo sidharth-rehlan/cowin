@@ -17,7 +17,7 @@ export const fetchStates = async () => {
 
 export const fetchDistricts = async (stateId) => {
   const response = await axios.get(
-    `${APIConfig.baseUrl}${APIConfig.fetchDistrict}/{stateId}`
+    `${APIConfig.baseUrl}${APIConfig.fetchDistrict}/${stateId}`
   );
   return response.data;
 };

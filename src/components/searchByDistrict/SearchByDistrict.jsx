@@ -1,14 +1,17 @@
-import React, { useEffect, useCallback, useState } from "react";
+import React, { useEffect, useCallback, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchStates as fetchStatesAction } from "redux/states/stateActions";
-import { fetchDistricts as fetchDistrictsAction } from "redux/states/districtsActions";
+import { fetchDistricts as fetchDistrictsAction } from "redux/districts/districtsActions";
+import { isEmpty } from "lodash";
 
 function SearchByDistrict() {
-  const submitHandler = () => {};
   const states = useSelector((state) => state.states.states);
   const districts = useSelector((state) => state.districts.districts);
+
   const dispatch = useDispatch();
-  const [enteredState, setEnteredState] = useState();
+  const [enteredStateId, setEnteredStateId] = useState();
+
+  //const districtRef = useRef();
 
   const fetchState = useCallback(() => {
     if (states.length === 0) {
@@ -21,11 +24,15 @@ function SearchByDistrict() {
   }, [fetchState]);
 
   const stateChangeHandler = (e) => {
-      console.log(e.target.value);
-      const stateId = e.target.value;
-      if(!districts[stateId]){
-        dispatch(fetchDistrictsAction(stateId));
-      }
+    const stateId = e.target.value;
+    setEnteredStateId(stateId);
+    if (!districts[stateId]) {
+      dispatch(fetchDistrictsAction(stateId));
+    }
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
   };
 
   return (
@@ -33,7 +40,7 @@ function SearchByDistrict() {
       <div>
         <form onSubmit={submitHandler}>
           <label htmlFor="state">Select State</label>
-          <select name="state" id="state" onChange={}>
+          <select name="state" id="state" onChange={stateChangeHandler}>
             <option value="">Select State</option>
             {states.length > 0 &&
               states.map((state) => {
@@ -47,15 +54,20 @@ function SearchByDistrict() {
           <label htmlFor="district">District</label>
           <select name="district" id="district">
             <option value="">Select District</option>
-            {districts.length > 0 && districts[stateId] &&
-              districts[stateId].map((district) => {
+            {!isEmpty(districts) &&
+              districts[enteredStateId] &&
+              districts[enteredStateId].map((district) => {
                 return (
-                  <option key={district.district_id} value={district.district_id}>
-                    {state.district_name}
+                  <option
+                    key={district.district_id}
+                    value={district.district_id}
+                  >
+                    {district.district_name}
                   </option>
                 );
               })}
           </select>
+          <button type="submit">Search</button>
         </form>
       </div>
       <div>Grid</div>

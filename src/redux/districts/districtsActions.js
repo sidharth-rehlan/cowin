@@ -8,11 +8,11 @@ import {
 export const fetchDistricts = (stateId) => {
   return async (dispatch) => {
     try {
-      dispatch(fetchDistrictsRequest(s));
+      dispatch(fetchDistrictsRequest());
       const response = await fetchDistrictsAPI(stateId);
-      console.log("state action resonse...", response);
-      const districts = response.Districts;
-      dispatch(fetchDistrictsSuccess(districts));
+      console.log("districts action resonse...", response);
+      const districts = response.districts;
+      dispatch(fetchDistrictsSuccess(stateId, districts));
     } catch (error) {
       dispatch(fetchDistrictsFailure(error));
     }
@@ -25,10 +25,10 @@ export const fetchDistrictsRequest = () => {
   };
 };
 
-export const fetchDistrictsSuccess = (districts) => {
+export const fetchDistrictsSuccess = (stateId, districts) => {
   return {
     type: FETCH_DISTRICTS_SUCCESS,
-    payload: districts,
+    payload: { stateId: stateId, districts: districts },
   };
 };
 
