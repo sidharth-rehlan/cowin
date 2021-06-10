@@ -9,7 +9,6 @@ function SessionsItems(props) {
     available_capacity_dose2,
     min_age_limit,
     vaccine,
-    date,
   } = props.session;
   return (
     <li className="sessionItems">

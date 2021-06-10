@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import SearchGrid from "components/searchGrid";
-import { isEmpty, isNumber } from "lodash";
+import { isNumber } from "lodash";
 
 function SearchByPin() {
   const [pin, setpin] = useState(null);

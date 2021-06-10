@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect, useCallback } from "react";
 import moment from "moment";
-import { APIConfig } from "../../../config";
 import ResultDataItem from "./ResultDataItem";
+import { fetchSlotByPin } from "services";
 
 function ResultData(props) {
   const [slotData, setSlotData] = useState([]);
@@ -10,16 +9,14 @@ function ResultData(props) {
   //const date = "08-06-2021";
   const date = moment(props.date).format("DD-MM-YYYY");
 
-  const fetchSlotData = async () => {
-    const response = await axios.get(
-      `${APIConfig.baseUrl}${APIConfig.searchByPin}?pincode=${pincode}&date=${date}`
-    );
-    setSlotData(response.data.centers);
-  };
+  const fetchSlotData = useCallback(async () => {
+    const response = await fetchSlotByPin(pincode, date);
+    setSlotData(response.centers);
+  }, [pincode, date]);
 
   useEffect(() => {
     fetchSlotData();
-  }, []);
+  }, [pincode, date, fetchSlotData]);
 
   return (
     <div>
