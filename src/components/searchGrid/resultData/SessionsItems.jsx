@@ -3,22 +3,22 @@ import SlotUI from "./slot/SlotUI";
 import "./style.scss";
 
 function SessionsItems(props) {
-  const {
-    available_capacity,
-    available_capacity_dose1,
-    available_capacity_dose2,
-    min_age_limit,
-    vaccine,
-  } = props.session;
+  const sessionsPerDay = props.session;
   return (
     <li className="sessionItems">
-      <SlotUI
-        dose1={available_capacity_dose1}
-        availableDose={available_capacity}
-        dose2={available_capacity_dose2}
-        vaccineName={vaccine}
-        ageCategory={min_age_limit}
-      />
+      {sessionsPerDay.length > 0 &&
+        sessionsPerDay.map((session) => {
+          return (
+            <SlotUI
+              key={session.session_id}
+              dose1={session.available_capacity_dose1}
+              availableDose={session.available_capacity}
+              dose2={session.available_capacity_dose2}
+              vaccineName={session.vaccine}
+              ageCategory={session.min_age_limit}
+            />
+          );
+        })}
     </li>
   );
 }

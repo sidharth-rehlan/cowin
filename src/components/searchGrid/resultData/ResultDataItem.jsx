@@ -1,10 +1,25 @@
 import React from "react";
 import SessionsItems from "./SessionsItems";
 import Center from "../resultData/center/Center";
+import { isEmpty } from "lodash";
 
 function ResultDataItem(props) {
-  console.log("centerDAte...", props);
   const { sessions } = props.centerData;
+
+  const clubSessionWithDate = (sessions) => {
+    let sessionObj = {};
+    if (sessions.length > 0) {
+      sessions.forEach((session) => {
+        sessionObj[session.date] = isEmpty(sessionObj[session.date])
+          ? [session]
+          : [...sessionObj[session.date], session];
+      });
+    }
+    return sessionObj;
+  };
+
+  const formattedSession = clubSessionWithDate(sessions);
+
   return (
     <div className="resultRow">
       <Center
@@ -15,8 +30,14 @@ function ResultDataItem(props) {
       />
       <div>
         <ul className="sessionList">
-          {sessions.map((session) => {
-            return <SessionsItems key={session.session_id} session={session} />;
+          {Object.keys(formattedSession).map((dates) => {
+            const uniqueKey = props.centerData.center_id + dates;
+            return (
+              <SessionsItems
+                key={uniqueKey}
+                session={formattedSession[dates]}
+              />
+            );
           })}
         </ul>
       </div>

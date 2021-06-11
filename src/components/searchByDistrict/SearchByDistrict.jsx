@@ -1,8 +1,10 @@
 import React, { useEffect, useCallback, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { isEmpty } from "lodash";
+
 import { fetchStates as fetchStatesAction } from "redux/states/stateActions";
 import { fetchDistricts as fetchDistrictsAction } from "redux/districts/districtsActions";
-import { isEmpty } from "lodash";
+import SearchGrid from "components/searchGrid/SearchGrid";
 
 function SearchByDistrict() {
   const states = useSelector((state) => state.states.states);
@@ -10,8 +12,9 @@ function SearchByDistrict() {
 
   const dispatch = useDispatch();
   const [enteredStateId, setEnteredStateId] = useState();
+  const [enteredDistrictId, setEnteredDistrictId] = useState();
 
-  //const districtRef = useRef();
+  const districtRef = useRef();
 
   const fetchState = useCallback(() => {
     if (states.length === 0) {
@@ -33,6 +36,7 @@ function SearchByDistrict() {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setEnteredDistrictId(districtRef.current.value);
   };
 
   return (
@@ -52,7 +56,7 @@ function SearchByDistrict() {
               })}
           </select>
           <label htmlFor="district">District</label>
-          <select name="district" id="district">
+          <select name="district" id="district" ref={districtRef}>
             <option value="">Select District</option>
             {!isEmpty(districts) &&
               districts[enteredStateId] &&
@@ -70,7 +74,9 @@ function SearchByDistrict() {
           <button type="submit">Search</button>
         </form>
       </div>
-      <div>Grid</div>
+      {enteredDistrictId && (
+        <SearchGrid district={enteredDistrictId} date={new Date()}></SearchGrid>
+      )}
     </>
   );
 }

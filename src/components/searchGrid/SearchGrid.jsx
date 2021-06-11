@@ -8,7 +8,11 @@ function SearchGrid(props) {
     <div>
       <SearchFilter></SearchFilter>
       <CalenderSlide></CalenderSlide>
-      <ResultDataList date={props.date} pin={props.pin}></ResultDataList>
+      <ResultDataList
+        date={props.date}
+        pin={props.pin}
+        district={props.district}
+      ></ResultDataList>
     </div>
   );
 }
