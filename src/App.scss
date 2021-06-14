@@ -6,3 +6,32 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.hand-pointer {
+  cursor: pointer;
+}
+
+.cowinModal {
+  position: absolute;
+  top: 100px;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background-color: white;
+}
+
+.cowinModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(grey, 0.2);
+}
+
+.cowinModal-closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}

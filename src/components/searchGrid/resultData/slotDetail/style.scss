@@ -1,0 +1,12 @@
+.slotDetail-row {
+  display: flex;
+  justify-content: space-evenly;
+
+  .slotDetail-row-heading {
+    flex-grow: 1;
+  }
+  .slotDetail-row-data {
+    flex-grow: 1;
+    text-align: left;
+  }
+}

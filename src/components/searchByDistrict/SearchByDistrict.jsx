@@ -1,18 +1,18 @@
 import React, { useEffect, useCallback, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import SearchGrid from "components/searchGrid";
 import { isEmpty } from "lodash";
 
 import { fetchStates as fetchStatesAction } from "redux/states/stateActions";
 import { fetchDistricts as fetchDistrictsAction } from "redux/districts/districtsActions";
-import SearchGrid from "components/searchGrid/SearchGrid";
 
-function SearchByDistrict() {
+function SearchByDistrict(props) {
   const states = useSelector((state) => state.states.states);
   const districts = useSelector((state) => state.districts.districts);
 
   const dispatch = useDispatch();
   const [enteredStateId, setEnteredStateId] = useState();
-  const [enteredDistrictId, setEnteredDistrictId] = useState();
+  const [districtId, setDistrictId] = useState();
 
   const districtRef = useRef();
 
@@ -36,7 +36,7 @@ function SearchByDistrict() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    setEnteredDistrictId(districtRef.current.value);
+    setDistrictId(districtRef.current.value);
   };
 
   return (
@@ -74,8 +74,8 @@ function SearchByDistrict() {
           <button type="submit">Search</button>
         </form>
       </div>
-      {enteredDistrictId && (
-        <SearchGrid district={enteredDistrictId} date={new Date()}></SearchGrid>
+      {districtId && (
+        <SearchGrid district={districtId} date={new Date()}></SearchGrid>
       )}
     </>
   );

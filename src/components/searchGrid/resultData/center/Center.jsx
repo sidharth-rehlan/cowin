@@ -12,7 +12,6 @@ const VaccineFee = (props) => {
 };
 
 function Center(props) {
-  console.log("props...", props);
   const { name, feeType, address, vaccineFee } = props;
   return (
     <div className="centerInfo">
@@ -26,7 +25,7 @@ function Center(props) {
           {vaccineFee.map((vaccine) => {
             return (
               <VaccineFee
-                key="vaccine.vaccine"
+                key={vaccine.vaccine}
                 vaccine={vaccine.vaccine}
                 fee={vaccine.fee}
               />

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import SearchTabs from "components/searchTabs";
-import SearchByPin from "components/searchByPin";
 import SearchByMap from "components/searchByMap";
 import SearchByDistrict from "components/searchByDistrict";
+import SearchByPin from "components/searchByPin";
 import { searchTypes } from "config";
 
 function Home() {

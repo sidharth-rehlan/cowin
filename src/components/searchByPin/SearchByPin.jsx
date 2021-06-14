@@ -1,10 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useRef, useState } from "react";
 import SearchGrid from "components/searchGrid";
 import { isNumber } from "lodash";
 
 function SearchByPin() {
-  const [pin, setpin] = useState(null);
-
+  const [pin, setPin] = useState();
   const pinRef = useRef();
 
   const submitHandler = (e) => {
@@ -12,7 +11,7 @@ function SearchByPin() {
     const pinCode = parseInt(pinRef.current.value);
 
     if (isNumber(pinCode) && String(pinCode).length === 6) {
-      setpin(pinCode);
+      setPin(pinCode);
     }
   };
 

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import moment from "moment";
-import ResultDataItem from "./ResultDataItem";
+import ResultDataListWithFilter from "./ResultDataListWithFilter";
 import { fetchSlotsByDistrict, fetchSlotByPin } from "services";
 
 function ResultData(props) {
-  const [slotData, setSlotData] = useState([]);
+  const [responseData, setResponseData] = useState([]);
   const pincode = props.pin;
   const district = props.district;
   //const date = "08-06-2021";
@@ -19,9 +19,7 @@ function ResultData(props) {
       response = await fetchSlotsByDistrict(district, date);
     }
 
-    console.log("response...", response);
-
-    setSlotData(response.centers);
+    setResponseData(response.centers);
   }, [pincode, date, district]);
 
   useEffect(() => {
@@ -29,17 +27,13 @@ function ResultData(props) {
   }, [pincode, date, fetchSlotData, district]);
 
   return (
-    <div>
-      {console.log("slotData", slotData)}
-      {slotData.length > 0 &&
-        slotData.map((slotCenter) => {
-          return (
-            <ResultDataItem
-              centerData={slotCenter}
-              key={slotCenter.center_id}
-            ></ResultDataItem>
-          );
-        })}
+    <div className="resultDataList">
+      {responseData.length > 0 && (
+        <ResultDataListWithFilter
+          responseData={responseData}
+          activeFilters={props.activeFilters}
+        />
+      )}
     </div>
   );
 }

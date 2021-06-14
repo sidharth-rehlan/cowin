@@ -16,6 +16,8 @@ function SessionsItems(props) {
               dose2={session.available_capacity_dose2}
               vaccineName={session.vaccine}
               ageCategory={session.min_age_limit}
+              date={session.date}
+              slots={session.slots}
             />
           );
         })}
