@@ -8,6 +8,10 @@ ul.sessionList {
 
 .sessionItems {
   margin: 0 0.3em;
+  .slotUI-empty {
+    width: 100px;
+    background-color: grey;
+  }
 }
 
 .resultDataList {

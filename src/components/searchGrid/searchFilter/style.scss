@@ -1,0 +1,16 @@
+.searchFilter {
+  form {
+    padding: 1em;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .searchFilter-item {
+    padding: 0.5em;
+    input {
+      margin-right: 0.2em;
+    }
+  }
+}

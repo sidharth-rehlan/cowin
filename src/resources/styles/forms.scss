@@ -1,0 +1,19 @@
+.cowin-btn {
+  background: $lighterGrey;
+  color: $darkBlue;
+  border-radius: 7px;
+  border: 1px solid $darkGrey;
+  font-weight: 700;
+}
+
+.cowin-field {
+  margin-right: 1em;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid $lightGrey;
+}
+
+.cowin-field-error {
+  font-size: 0.7em;
+  color: $red;
+}

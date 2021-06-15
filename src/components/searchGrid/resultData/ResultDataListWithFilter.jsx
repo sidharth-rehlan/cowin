@@ -104,10 +104,7 @@ const filterCenterByFeeType = (centerData, activeFilters) => {
 };
 
 const modifyResponse = (responseData, activeFilters) => {
-  // console.log(responseData);
-  // console.log(activeFilters);
   let modifiedData = responseData;
-  console.log("before checking.....", modifiedData);
 
   if (activeFilters.length > 0) {
     if (activeFilters.includes("paid") || activeFilters.includes("free"))
@@ -115,7 +112,6 @@ const modifyResponse = (responseData, activeFilters) => {
         filterCenterByFeeType(center, activeFilters)
       );
 
-    console.log("first checking", modifiedData);
     if (
       activeFilters.includes("age18") ||
       activeFilters.includes("age45") ||
@@ -126,24 +122,17 @@ const modifyResponse = (responseData, activeFilters) => {
       modifiedData = applyFilterOnSessions(modifiedData, activeFilters);
     }
 
-    console.log("second checking...", modifiedData);
     modifiedData = removeCentersWithoutSessions(modifiedData);
-    console.log("third checking....", modifiedData);
   }
   return modifiedData;
 };
 
 function ResultDataListWithFilter(props) {
   let { responseData, activeFilters } = props;
-  console.log("beforeJSON...", responseData);
-  //console.log("activefilter:", activeFilters);
-  //  let modifiedData = responseData;
 
   let modifiedData = cloneDeep(responseData);
-  console.log("afterJSON......", modifiedData);
 
   let modifiedRespnseData = modifyResponse(modifiedData, [...activeFilters]);
-  console.log("final......", modifiedRespnseData);
   return (
     <>
       {modifiedRespnseData.length > 0 &&
@@ -155,6 +144,11 @@ function ResultDataListWithFilter(props) {
             ></ResultDataItem>
           );
         })}
+      {modifiedRespnseData.length === 0 && (
+        <p className="--bold">
+          No Vaccination center is available for booking.
+        </p>
+      )}
     </>
   );
 }

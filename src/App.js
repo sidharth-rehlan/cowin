@@ -4,6 +4,9 @@ import Home from "components/home";
 import { Provider } from "react-redux";
 import store from "redux/store";
 
+import "../node_modules/bootstrap/dist/css/bootstrap.css";
+import "../node_modules/bootstrap/dist/css/bootstrap-grid.css";
+
 import "App.scss";
 
 function App() {

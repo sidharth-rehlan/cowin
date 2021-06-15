@@ -1,5 +1,5 @@
 import React from "react";
-import { searchFilter } from "config";
+import { searchFilter } from "configs/config";
 import "./style.scss";
 
 function SearchFilter(props) {
@@ -11,9 +11,8 @@ function SearchFilter(props) {
     <div className="searchFilter">
       <form>
         {searchFilter.map((filter) => {
-          console.log(filter);
           return (
-            <span className="searchFilter-item" key={filter.id}>
+            <div className="searchFilter-item" key={filter.id}>
               <input
                 type="checkbox"
                 name={filter.id}
@@ -21,7 +20,7 @@ function SearchFilter(props) {
                 onClick={(e) => onFilterClicked(e, filter.id)}
               />
               <label htmlFor={filter.id}>{filter.value}</label>
-            </span>
+            </div>
           );
         })}
       </form>

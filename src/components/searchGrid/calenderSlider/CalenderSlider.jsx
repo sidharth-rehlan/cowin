@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { getDates } from "helper";
-import { siteConfig } from "../../config";
+import { siteConfig } from "configs/config";
 import CalenderDateItem from "./CalenderDateItem";
+import "./style.scss";
 
-const { daysInSearchFilter, searchDatesPerPage } = siteConfig;
+const { daysInSearchFilter, datesPerPage } = siteConfig;
 
 const totalDays = getDates(daysInSearchFilter);
 
-function CalenderSlider() {
-  const numberOfPages = Math.ceil(daysInSearchFilter / searchDatesPerPage);
+function CalenderSlider(props) {
+  const { changeDateHandler, initialDate } = props;
+  const numberOfPages = Math.ceil(daysInSearchFilter / datesPerPage);
   const [currentPage, setCurrentPage] = useState(0);
+
+  useEffect(() => {
+    changeDateHandler(totalDays[currentPage * datesPerPage]);
+  }, [currentPage, changeDateHandler]);
+
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [initialDate]);
 
   const previousClicked = () => {
     setCurrentPage((currentPage) => currentPage - 1);
@@ -20,8 +30,8 @@ function CalenderSlider() {
   };
 
   let showingListDates = totalDays.slice(
-    searchDatesPerPage * currentPage,
-    searchDatesPerPage * (currentPage + 1)
+    datesPerPage * currentPage,
+    datesPerPage * (currentPage + 1)
   );
 
   return (

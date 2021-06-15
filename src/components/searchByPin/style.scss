@@ -1,0 +1,19 @@
+@import "resources/styles/constants.scss";
+@import "resources/styles/forms.scss";
+
+.searchByPin-form {
+  display: flex;
+  justify-content: center;
+}
+
+.searchByPin-formControl {
+  padding-right: 1em;
+  width: 21%;
+}
+
+/* Portrait */
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+  .searchByPin-formControl {
+    width: 75%;
+  }
+}

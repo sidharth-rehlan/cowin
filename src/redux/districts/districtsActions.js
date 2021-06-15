@@ -10,7 +10,6 @@ export const fetchDistricts = (stateId) => {
     try {
       dispatch(fetchDistrictsRequest());
       const response = await fetchDistrictsAPI(stateId);
-      console.log("districts action resonse...", response);
       const districts = response.districts;
       dispatch(fetchDistrictsSuccess(stateId, districts));
     } catch (error) {

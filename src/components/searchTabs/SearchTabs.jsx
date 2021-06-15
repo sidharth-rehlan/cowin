@@ -1,22 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { searchTypes } from "config";
+import { searchTypes } from "configs/config";
 import "./style.scss";
 
 function SearchTabs(props) {
+  const { tabClickHandler } = props;
+  const [activeButton, setActiveButton] = useState(searchTypes.searchByPin);
+  const clickButtonHandler = (buttonType) => {
+    setActiveButton(buttonType);
+    tabClickHandler(buttonType);
+  };
+
   return (
     <div className="searchTabs">
-      <button onClick={() => props.tabClickHandler(searchTypes.searchByMap)}>
-        Search by MAP
-      </button>
-      <button onClick={() => props.tabClickHandler(searchTypes.searchByPin)}>
-        Search by PIN
-      </button>
-      <button
-        onClick={() => props.tabClickHandler(searchTypes.searchByDistrict)}
-      >
-        Search by District
-      </button>
+      <div className="searchButtons">
+        <button
+          className={
+            activeButton === searchTypes.searchByPin
+              ? "searchButtons-active button"
+              : "button"
+          }
+          onClick={() => clickButtonHandler(searchTypes.searchByPin)}
+        >
+          Search by PIN
+        </button>
+        <button
+          className={
+            activeButton === searchTypes.searchByDistrict
+              ? "searchButtons-active button"
+              : "button"
+          }
+          onClick={() => clickButtonHandler(searchTypes.searchByDistrict)}
+        >
+          Search by District
+        </button>
+        <button
+          className={
+            activeButton === searchTypes.searchByMap
+              ? "searchButtons-active button"
+              : "button"
+          }
+          onClick={() => clickButtonHandler(searchTypes.searchByMap)}
+        >
+          Search by MAP
+        </button>
+      </div>
     </div>
   );
 }

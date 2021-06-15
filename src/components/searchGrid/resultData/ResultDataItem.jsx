@@ -1,13 +1,24 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import SessionsItems from "./SessionsItems";
 import Center from "../resultData/center/Center";
 import { isEmpty } from "lodash";
+import moment from "moment";
 
 function ResultDataItem(props) {
   const { sessions } = props.centerData;
+  const searchDate = useSelector((state) => state.search.searchDate);
+  let sessionObj = {};
+
+  for (let i = 0; i < 7; i++) {
+    const date = moment(searchDate, "DD-MM-YYYY")
+      .add(i, "days")
+      .format("DD-MM-YYYY");
+
+    sessionObj[date] = {};
+  }
 
   const clubSessionWithDate = (sessions) => {
-    let sessionObj = {};
     if (sessions.length > 0) {
       sessions.forEach((session) => {
         sessionObj[session.date] = isEmpty(sessionObj[session.date])

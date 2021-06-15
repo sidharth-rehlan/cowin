@@ -1,8 +1,34 @@
+@import "resources/styles/constants.scss";
+
 .searchTabs {
   text-align: center;
+  .searchButtons {
+    display: inline-block;
+    border: 1px solid $darkGrey;
+    border-radius: 44px;
+    margin-bottom: 1rem;
+  }
+  .button {
+    padding: 1em;
+    border: none;
+    border-radius: 44px;
+    font-weight: 700;
+    background-color: transparent;
+  }
+  .searchButtons-active {
+    background-color: $darkBlue;
+    color: $white;
+  }
 }
 
-.searchTabs button {
-  padding: 1em;
-  margin: 1em;
+/* Portrait */
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+  .searchTabs {
+    .searchButtons {
+      font-size: 0.9em;
+    }
+    .button {
+      padding: 0.6em;
+    }
+  }
 }

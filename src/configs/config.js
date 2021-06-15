@@ -16,7 +16,7 @@ export const searchFilter = [
 
 export const siteConfig = {
   daysInSearchFilter: 28,
-  searchDatesPerPage: 7,
+  datesPerPage: 7,
 };
 
 export const APIConfig = {

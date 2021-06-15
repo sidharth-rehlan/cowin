@@ -1,5 +1,5 @@
 import axios from "axios";
-import { APIConfig } from "../config";
+import { APIConfig } from "../configs/config";
 
 export const fetchSlotByPin = async (pincode, date) => {
   const response = await axios.get(

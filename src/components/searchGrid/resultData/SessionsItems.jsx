@@ -1,6 +1,7 @@
 import React from "react";
 import SlotUI from "./slot/SlotUI";
 import "./style.scss";
+import { isEmpty } from "lodash";
 
 function SessionsItems(props) {
   const sessionsPerDay = props.session;
@@ -21,6 +22,11 @@ function SessionsItems(props) {
             />
           );
         })}
+      {isEmpty(sessionsPerDay) && (
+        <div className="slotUI-empty">
+          <span>NA</span>
+        </div>
+      )}
     </li>
   );
 }
