@@ -35,8 +35,6 @@ function SearchByPin() {
     }
   };
 
-  const formattedCurrentDate = moment(new Date()).format("DD-MM-YYYY");
-
   return (
     <>
       <div className="row">
@@ -58,7 +56,7 @@ function SearchByPin() {
           </div>
         </form>
       </div>
-      {pin && <SearchGrid pin={pin} date={formattedCurrentDate}></SearchGrid>}
+      {pin && <SearchGrid pin={pin} />}
     </>
   );
 }
