@@ -1,8 +1,16 @@
-.calenderDateItem {
-  display: inline-block;
-  padding: 1em;
+.calenderSliderMobile {
+  display: none;
+}
+.calenderSliderDesktop {
+  display: flex;
 }
 
-.calenderSlider {
-  display: flex;
+/* Portrait */
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+  .calenderSliderMobile {
+    display: flex;
+  }
+  .calenderSliderDesktop {
+    display: none;
+  }
 }

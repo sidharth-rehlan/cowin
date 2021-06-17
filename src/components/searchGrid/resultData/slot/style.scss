@@ -1,3 +1,4 @@
+@import "resources/styles/constants.scss";
 .slotUI {
   .slotUI-availableDoses {
     display: flex;
@@ -15,6 +16,8 @@
     span {
       background-color: #ad0000;
       padding: 0.2em;
+      color: $white;
+      font-weight: 600;
     }
   }
   .slotUI-total-available-dose {
@@ -23,6 +26,9 @@
     background-color: #a9d18e;
     span {
       font-weight: 600;
+      display: inline-block;
+      width: 2em;
+      text-align: center;
     }
   }
   .slotUI-vaccineName {

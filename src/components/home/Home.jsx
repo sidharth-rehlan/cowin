@@ -13,7 +13,7 @@ function Home() {
     setSelectedTab(name);
   };
   return (
-    <main className="container-fluid">
+    <main>
       <h2 className="main-heading">
         Check your nearest vaccination center and slots availability
       </h2>

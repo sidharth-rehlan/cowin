@@ -1,12 +1,28 @@
-.slotDetail-row {
-  display: flex;
-  justify-content: space-evenly;
-
-  .slotDetail-row-heading {
-    flex-grow: 1;
+.slotDetail {
+  h3 {
+    text-align: center;
+    font-weight: 500;
+    padding: 0.5em 0;
   }
-  .slotDetail-row-data {
-    flex-grow: 1;
-    text-align: left;
+  .slotDetail-row {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 0 2em;
+
+    .slotDetail-row-heading {
+      width: 50%;
+      font-weight: 600;
+    }
+    .slotDetail-row-data {
+      text-align: left;
+      display: flex;
+      width: 50%;
+    }
+
+    .slotDetail-row-data.slot-timing {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }

@@ -62,7 +62,7 @@ const SlotDetail = (props) => {
             <div className="slotDetail-row-heading">
               <span>Slotes</span>
             </div>
-            <div className="slotDetail-row-data">
+            <div className="slotDetail-row-data slot-timing">
               {slots.map((slot) => {
                 return (
                   <div key={slot}>

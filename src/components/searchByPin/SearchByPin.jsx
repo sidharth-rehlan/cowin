@@ -1,7 +1,10 @@
 import React, { useRef, useState } from "react";
-import SearchGrid from "components/searchGrid";
+import { useDispatch } from "react-redux";
 import { isNumber } from "lodash";
+import moment from "moment";
+import SearchGrid from "components/searchGrid";
 import lang from "configs/lang.config";
+import { addSearchDate } from "redux/search/searchActions";
 
 import "./style.scss";
 
@@ -9,6 +12,7 @@ function SearchByPin() {
   const [pin, setPin] = useState();
   const [error, setError] = useState(null);
   const pinRef = useRef();
+  const dispatch = useDispatch();
   const onChangePin = (e) => {
     const enteredValue = parseInt(e.target.value);
     if (!isNumber(enteredValue) || String(enteredValue).length > 6) {
@@ -24,10 +28,14 @@ function SearchByPin() {
 
     if (isNumber(pinCode) && String(pinCode).length === 6) {
       setPin(pinCode);
+      const formattedCurrentDate = moment(new Date()).format("DD-MM-YYYY");
+      dispatch(addSearchDate(formattedCurrentDate));
     } else {
       setError(lang.pinError);
     }
   };
+
+  const formattedCurrentDate = moment(new Date()).format("DD-MM-YYYY");
 
   return (
     <>
@@ -50,7 +58,7 @@ function SearchByPin() {
           </div>
         </form>
       </div>
-      {pin && <SearchGrid pin={pin} date={new Date()}></SearchGrid>}
+      {pin && <SearchGrid pin={pin} date={formattedCurrentDate}></SearchGrid>}
     </>
   );
 }

@@ -1,0 +1,73 @@
+@import "resources/styles/constants.scss";
+
+.calenderSliderDesktop {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 1em 0;
+  .calenderSliderDesktop-items-container {
+    display: flex;
+    width: 80%;
+  }
+  .calenderSliderDesktop-prev {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+
+    .calenderSliderDesktop-prev-btn {
+      background-color: #887c7c;
+      &:hover {
+        background-color: rgb(71, 69, 69);
+      }
+    }
+    .--disable {
+      background-color: lightgrey;
+      &:hover {
+        background-color: lightgrey;
+      }
+    }
+  }
+
+  .calenderSliderDesktop-next {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    .calenderSliderDesktop-next-btn {
+      background-color: #887c7c;
+      &:hover {
+        background-color: rgb(71, 69, 69);
+      }
+    }
+    .--disable {
+      background-color: lightgrey;
+      &:hover {
+        background-color: lightgrey;
+      }
+    }
+  }
+  .calenderSliderDesktop-datesList {
+    width: 80%;
+    display: inherit;
+    .calenderDateItem {
+      display: inline-block;
+      padding: 1em;
+      width: 100%;
+    }
+  }
+}
+
+/*Tablet and mobile landscape*/
+@media only screen and (max-device-width: 1024px) {
+  .calenderSliderDesktop {
+    .calenderSliderDesktop-next,
+    .calenderSliderDesktop-prev {
+      width: 5%;
+    }
+    .calenderSliderDesktop-items-container {
+      width: 85%;
+    }
+    .calenderSliderDesktop-datesList {
+      width: 90%;
+    }
+  }
+}

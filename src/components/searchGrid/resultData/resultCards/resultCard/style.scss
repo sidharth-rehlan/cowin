@@ -1,0 +1,59 @@
+.resultCard {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  padding: 1em;
+  margin: 0.5em 0;
+
+  .resultCard-center-vaccine {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+
+    .resultCard-centerInfo {
+      width: 60%;
+      font-weight: 400;
+      .resultCard-center {
+        font-weight: 600;
+        font-size: 1em;
+      }
+    }
+  }
+  .resultCard-vaccineInfo {
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    text-align: right;
+    h3 {
+      font-weight: 400;
+      font-size: 1em;
+    }
+    .resultCard-vaccineInfo-feeType {
+      span {
+        color: white;
+        background-color: green;
+        border-radius: 5px;
+        padding: 0.3em;
+      }
+    }
+  }
+
+  .resultCard-doseInfo {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+
+    .--green {
+      color: green;
+      font-weight: 600;
+    }
+    .resultCard-age span {
+      background-color: purple;
+      color: white;
+      padding: 0.5em;
+      border-radius: 5px;
+    }
+  }
+}

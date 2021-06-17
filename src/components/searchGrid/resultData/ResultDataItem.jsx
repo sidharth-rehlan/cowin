@@ -1,7 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import SessionsItems from "./SessionsItems";
-import Center from "../resultData/center/Center";
+import Center from "../resultData/center";
+import ResultCards from "./resultCards";
 import { isEmpty } from "lodash";
 import moment from "moment";
 
@@ -33,24 +34,35 @@ function ResultDataItem(props) {
 
   return (
     <div className="resultRow">
-      <Center
-        name={props.centerData.name}
-        address={props.centerData.address}
-        vaccineFee={props.centerData.vaccine_fees}
-        feeType={props.centerData.fee_type}
-      />
-      <div>
-        <ul className="sessionList">
-          {Object.keys(formattedSession).map((dates) => {
-            const uniqueKey = props.centerData.center_id + dates;
-            return (
-              <SessionsItems
-                key={uniqueKey}
-                session={formattedSession[dates]}
-              />
-            );
-          })}
-        </ul>
+      <div className="resultRow-desktop">
+        <Center
+          name={props.centerData.name}
+          address={props.centerData.address}
+          vaccineFee={props.centerData.vaccine_fees}
+          feeType={props.centerData.fee_type}
+        />
+        <div className="sessionList-wrapper">
+          <ul className="sessionList">
+            {Object.keys(formattedSession).map((dates) => {
+              const uniqueKey = props.centerData.center_id + dates;
+              return (
+                <SessionsItems
+                  key={uniqueKey}
+                  session={formattedSession[dates]}
+                />
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+      <div className="resultRow-mobile">
+        <ResultCards
+          name={props.centerData.name}
+          address={props.centerData.address}
+          vaccineFee={props.centerData.vaccine_fees}
+          feeType={props.centerData.fee_type}
+          sessionInfo={formattedSession[searchDate]}
+        ></ResultCards>
       </div>
     </div>
   );

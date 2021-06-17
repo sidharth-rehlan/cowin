@@ -1,20 +1,71 @@
+@import "resources/styles/constants.scss";
 .resultRow {
   display: flex;
-}
-
-ul.sessionList {
-  display: flex;
+  border-bottom: 1px $lighterGrey solid;
+  padding: 1em 0;
+  .resultRow-desktop {
+    display: flex;
+    width: 100%;
+  }
+  .resultRow-mobile {
+    display: none;
+  }
 }
 
 .sessionItems {
   margin: 0 0.3em;
+  width: 100%;
   .slotUI-empty {
-    width: 100px;
     background-color: grey;
+    color: $white;
+    font-weight: 600;
+    text-align: center;
   }
 }
 
 .resultDataList {
   height: 500px;
   overflow-y: scroll;
+  p.resultDataList-no-vaccine {
+    text-align: center;
+  }
+}
+
+.sessionList-wrapper {
+  width: 77%;
+  display: flex;
+  ul.sessionList {
+    display: flex;
+    list-style-type: none;
+    width: 90%;
+  }
+}
+
+/*Tablet and mobile landscape*/
+@media only screen and (max-device-width: 1024px) {
+  .resultRow {
+    .sessionList-wrapper {
+      width: 83%;
+      ul.sessionList {
+        width: 95%;
+      }
+    }
+  }
+}
+
+/* Portrait */
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+  .resultRow {
+    border-bottom: none;
+    padding: 0;
+
+    .resultRow-desktop {
+      display: none;
+    }
+    .resultRow-mobile {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+    }
+  }
 }

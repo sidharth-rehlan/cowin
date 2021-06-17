@@ -1,11 +1,12 @@
 import React, { useEffect, useCallback, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import moment from "moment";
 import SearchGrid from "components/searchGrid";
 import { isEmpty } from "lodash";
 import lang from "configs/lang.config";
 import { fetchStates as fetchStatesAction } from "redux/states/stateActions";
 import { fetchDistricts as fetchDistrictsAction } from "redux/districts/districtsActions";
-
+import { addSearchDate } from "redux/search/searchActions";
 import "./style.scss";
 
 function SearchByDistrict(props) {
@@ -57,6 +58,8 @@ function SearchByDistrict(props) {
       stateRef.current.value === "" && setStateError(lang.stateFieldError);
     } else {
       setDistrictId(districtRef.current.value);
+      const formattedCurrentDate = moment(new Date()).format("DD-MM-YYYY");
+      dispatch(addSearchDate(formattedCurrentDate));
     }
   };
 
@@ -115,9 +118,7 @@ function SearchByDistrict(props) {
           </div>
         </form>
       </div>
-      {districtId && (
-        <SearchGrid district={districtId} date={new Date()}></SearchGrid>
-      )}
+      {districtId && <SearchGrid district={districtId}></SearchGrid>}
     </>
   );
 }

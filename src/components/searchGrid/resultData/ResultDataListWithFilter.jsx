@@ -1,6 +1,7 @@
 import React from "react";
 import { cloneDeep } from "lodash";
 import ResultDataItem from "./ResultDataItem";
+import lang from "configs/lang.config";
 
 // const iseighteenPlus = (item) => item.min_age_limit === 18;
 // const isfourtyFivePlus = (item) => item.min_age_limit === 45;
@@ -145,9 +146,7 @@ function ResultDataListWithFilter(props) {
           );
         })}
       {modifiedRespnseData.length === 0 && (
-        <p className="--bold">
-          No Vaccination center is available for booking.
-        </p>
+        <p className="--bold --align-center">{lang.vaccineNotAvailable}</p>
       )}
     </>
   );

@@ -1,0 +1,18 @@
+@import "resources/styles/constants.scss";
+
+.calenderSliderMobile {
+  overflow-y: scroll;
+  width: 100%;
+  margin-bottom: 1em;
+  margin-bottom: 1em;
+  .calenderSliderMobile-button-wrapper {
+    padding: 0.5em;
+  }
+  .calenderSliderMobile-button {
+    width: 6em;
+  }
+  .calenderSliderMobile-button.--active {
+    background-color: $darkBlue;
+    color: $white;
+  }
+}
