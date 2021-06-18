@@ -9,7 +9,7 @@ import { fetchDistricts as fetchDistrictsAction } from "redux/districts/district
 import { addSearchDate } from "redux/search/searchActions";
 import "./style.scss";
 
-function SearchByDistrict(props) {
+function SearchByDistrict() {
   const states = useSelector((state) => state.states.states);
   const districts = useSelector((state) => state.districts.districts);
   const [stateError, setStateError] = useState(null);
