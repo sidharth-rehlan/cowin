@@ -1,5 +1,11 @@
 # COWIN CLONE
 
+- Search By District
+- Search By Pin code
+- User can change dates through scroller in mobile and through navigation links in the desktop.
+  -Available will be shown on the basis of selected date.
+  -Available slots are active links in the desktop. On clicking it full detail is shown in pop up.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
