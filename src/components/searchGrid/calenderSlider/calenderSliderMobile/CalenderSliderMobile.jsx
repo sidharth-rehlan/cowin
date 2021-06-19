@@ -10,6 +10,7 @@ const totalDays = getDates(daysInSearchFilter);
 
 function CalenderSliderMobile(props) {
   const { changeDateHandler } = props;
+
   return (
     <div className="calenderSliderMobile">
       {totalDays.map((day) => {

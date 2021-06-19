@@ -73,6 +73,7 @@ function SearchByDistrict() {
               id="state"
               onChange={stateChangeHandler}
               ref={stateRef}
+              data-testid="state-selector"
             >
               <option value="">Select State</option>
               {states.length > 0 &&
@@ -92,6 +93,7 @@ function SearchByDistrict() {
               id="district"
               ref={districtRef}
               onChange={districtChangeHandler}
+              data-testid="district-selector"
             >
               <option value="">Select District</option>
               {!isEmpty(districts) &&

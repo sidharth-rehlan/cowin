@@ -4,6 +4,8 @@ import userEvent from "@testing-library/user-event";
 import SearchByPin from "./SearchByPin";
 
 describe("SearchByPin tests", () => {
+  window.HTMLElement.prototype.scrollIntoView = jest.fn();
+
   test("should show error on entering pin code of more than 6 character", async () => {
     render(<SearchByPin />);
     const pinCodeTextField = screen.getByRole("textbox");

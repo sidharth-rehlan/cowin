@@ -3,39 +3,6 @@ import { cloneDeep } from "lodash";
 import ResultDataItem from "./ResultDataItem";
 import lang from "configs/lang.config";
 
-// const iseighteenPlus = (item) => item.min_age_limit === 18;
-// const isfourtyFivePlus = (item) => item.min_age_limit === 45;
-// const isFree = (item) => {
-//   console.log('isFree', item);
-//   return item.fee_type === "Free"
-// };
-// const isPaid = (item) => !isFree(item);
-// const isCovaxin = (item) => {
-//   console.log('isCovaxin', item);
-//   return item.vaccine === 'COVAXIN';
-// }
-// const isCovishield = (item) => {
-//   console.log('isCovishield', item);
-//   return item.vaccine === 'COVISHIELD';
-// }
-// const chooseCenter = (ageGroupFilterFunc) => (items) => items.filter(ageGroupFilterFunc);
-// const chooseFeeTypeCenter = (feeTypeFilterFunc) => (items) => items.filter(feeTypeFilterFunc);
-
-// const filters = {
-//   age18: iseighteenPlus,
-//   age45: isfourtyFivePlus,
-//   free: isFree,
-//   paid: isPaid,
-//   covaxin: isCovaxin,
-//   covishield : isCovishield
-// };
-
-// const funcs = (filtersArray) => filtersArray.map(k => filters[k]);
-
-// const compose = (...functions) => (data) => functions.reduceRight((acc, fn) => fn(acc), data);
-// // const filterby = (...functions) => (data) => data.filter(item.)
-// const composeOr = (...funcs) => items =>
-
 const checkAge = (activeFilters, session) => {
   return (
     (activeFilters.includes("age18") && session.min_age_limit === 18) ||
