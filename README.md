@@ -1,5 +1,7 @@
 # COWIN CLONE
 
+### Application Features
+
 - Search By District
 - Search By Pin code
 - User can change dates through scroller in mobile and through navigation links in the desktop.
