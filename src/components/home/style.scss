@@ -9,6 +9,12 @@ main {
   padding: 0 8em;
 }
 
+main.dark {
+  background-color: black;
+  color: white;
+  border-color: orange;
+}
+
 /*Tablet and mobile landscape*/
 @media only screen and (max-device-width: 1024px) {
   main {

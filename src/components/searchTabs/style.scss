@@ -20,6 +20,19 @@
     color: $white;
   }
 }
+.dark.searchTabs {
+  color: darkPrimaryForeground;
+  .searchButtons {
+    border: 1px solid $darkPrimaryBorder;
+  }
+  .button {
+    color: $darkPrimaryForeground;
+  }
+  .searchButtons-active {
+    background-color: $darkPrimaryButton;
+    color: $darkPrimaryForeground;
+  }
+}
 
 /* Portrait */
 @media only screen and (max-device-width: 480px) and (orientation: portrait) {

@@ -1,3 +1,5 @@
+@import "resources/styles/constants.scss";
+
 .cowin-btn {
   background: $lighterGrey;
   color: $darkBlue;
@@ -16,4 +18,12 @@
 .cowin-field-error {
   font-size: 0.7em;
   color: $red;
+}
+
+.dark .cowin-btn {
+  background-color: $darkPrimaryButton;
+  border: 1px solid $darkPrimaryBorder;
+}
+.dark .cowin-field {
+  border: 1px solid $darkPrimaryBorder;
 }

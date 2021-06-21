@@ -16,3 +16,8 @@
     color: $white;
   }
 }
+.dark .calenderSliderMobile {
+  .calenderSliderMobile-button.--active {
+    background-color: $darkPrimaryButton;
+  }
+}

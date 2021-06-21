@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
+import themeContext from "context/ThemeContext";
 import { searchTypes } from "configs/config";
 import "./style.scss";
 
@@ -11,8 +11,10 @@ function SearchTabs(props) {
     tabClickHandler(buttonType);
   };
 
+  const ctx = useContext(themeContext);
+
   return (
-    <div className="searchTabs">
+    <div className={`${ctx.mode} searchTabs`}>
       <div className="searchButtons">
         <button
           className={

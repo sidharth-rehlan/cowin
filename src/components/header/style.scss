@@ -1,0 +1,11 @@
+@import "resources/styles/constants.scss";
+header {
+  display: flex;
+  flex-direction: row;
+  width: 100;
+  justify-content: flex-end;
+}
+header.dark {
+  background-color: $darkPrimaryBackground;
+  color: $darkPrimaryForeground;
+}
