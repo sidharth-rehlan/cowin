@@ -1,6 +1,9 @@
 @import "resources/styles/constants.scss";
 .darkThemeSelector-form {
   padding-right: 1em;
+  padding-top: 1em;
+  display: flex;
+  align-items: center;
   label {
     padding-right: 0.5em;
   }
